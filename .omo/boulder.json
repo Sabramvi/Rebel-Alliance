@@ -8,7 +8,7 @@
       "plan_name": "vpn-reanimation",
       "status": "active",
       "started_at": "2026-06-10T05:31:13.320Z",
-      "updated_at": "2026-06-10T05:31:13.320Z",
+      "updated_at": "2026-06-10T05:45:40.009Z",
       "session_ids": [
         "opencode:ses_1502f6184ffev5syBjlzwdsd3f"
       ],
@@ -16,13 +16,40 @@
         "opencode:ses_1502f6184ffev5syBjlzwdsd3f": "direct"
       },
       "agent": "atlas",
-      "task_sessions": {}
+      "task_sessions": {
+        "todo:1": {
+          "task_key": "todo:1",
+          "task_label": "1",
+          "task_title": "SSH discovery + backup on Sabram Neo (5.42.110.191)",
+          "session_id": "opencode:ses_14ffbdf9fffei8vFU8acZBzik6",
+          "agent": "Sisyphus-Junior",
+          "category": "deep",
+          "updated_at": "2026-06-10T05:39:21.147Z",
+          "started_at": "2026-06-10T05:38:58.851Z",
+          "status": "completed",
+          "ended_at": "2026-06-10T05:39:21.147Z",
+          "elapsed_ms": 22296
+        },
+        "todo:5": {
+          "task_key": "todo:5",
+          "task_label": "5",
+          "task_title": "Fix Marzban panel on Sabram Neo (5.42.110.191)",
+          "session_id": "opencode:ses_14ff2f13fffelWfzZkBI215d2G",
+          "agent": "Sisyphus-Junior",
+          "category": "deep",
+          "updated_at": "2026-06-10T05:45:40.009Z",
+          "started_at": "2026-06-10T05:45:20.651Z",
+          "status": "completed",
+          "ended_at": "2026-06-10T05:45:40.009Z",
+          "elapsed_ms": 19358
+        }
+      }
     }
   },
   "active_plan": "/Users/sabram/_SabramDesign/_Projects/AI Next/Skywalker-VPN/.omo/plans/vpn-reanimation.md",
   "started_at": "2026-06-10T05:31:13.320Z",
   "status": "active",
-  "updated_at": "2026-06-10T05:31:13.320Z",
+  "updated_at": "2026-06-10T05:45:40.009Z",
   "session_ids": [
     "opencode:ses_1502f6184ffev5syBjlzwdsd3f"
   ],
@@ -30,6 +57,33 @@
     "opencode:ses_1502f6184ffev5syBjlzwdsd3f": "direct"
   },
   "plan_name": "vpn-reanimation",
-  "task_sessions": {},
+  "task_sessions": {
+    "todo:1": {
+      "task_key": "todo:1",
+      "task_label": "1",
+      "task_title": "SSH discovery + backup on Sabram Neo (5.42.110.191)",
+      "session_id": "opencode:ses_14ffbdf9fffei8vFU8acZBzik6",
+      "agent": "Sisyphus-Junior",
+      "category": "deep",
+      "updated_at": "2026-06-10T05:39:21.147Z",
+      "started_at": "2026-06-10T05:38:58.851Z",
+      "status": "completed",
+      "ended_at": "2026-06-10T05:39:21.147Z",
+      "elapsed_ms": 22296
+    },
+    "todo:5": {
+      "task_key": "todo:5",
+      "task_label": "5",
+      "task_title": "Fix Marzban panel on Sabram Neo (5.42.110.191)",
+      "session_id": "opencode:ses_14ff2f13fffelWfzZkBI215d2G",
+      "agent": "Sisyphus-Junior",
+      "category": "deep",
+      "updated_at": "2026-06-10T05:45:40.009Z",
+      "started_at": "2026-06-10T05:45:20.651Z",
+      "status": "completed",
+      "ended_at": "2026-06-10T05:45:40.009Z",
+      "elapsed_ms": 19358
+    }
+  },
   "agent": "atlas"
 }

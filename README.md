@@ -1,30 +1,34 @@
-# Important notice by USER
+# Skywalker-VPN — Reanimation
 
-This file is NOT A SoT!! Don't trust it! It was written by agent that failed his work and killed system! Just analyse, try understand for context.
-Everything written below is a report on the agent’s work that led to a critical system error. Copy file after work to archive, and update this file
+## Source of Truth
 
-# Skywalker-VPN
+This folder is the canonical handoff for the Skywalker-VPN project (Marzban / Aeza / USA setup).
 
-This folder is the updated handoff package for the live Marzban / Aeza / Happ setup.
+## Read order
 
-## What to read first
+1. `AGENTS.md`
+2. `TOPOLOGY.md`
+3. `CURRENT_STATE.md`
+4. `ACTIVE_SUBSCRIPTIONS.md`
+5. `OPERATIONS_AND_ROLLBACK.md`
+6. `SOURCE_OF_TRUTH.env`
+7. `XRAY_CONFIG.current.json`
 
-- `AGENTS.md`
-- `TOPOLOGY.md`
-- `CURRENT_STATE.md`
-- `ACTIVE_SUBSCRIPTIONS.md`
-- `OPERATIONS_AND_ROLLBACK.md`
-- `SOURCE_OF_TRUTH.env`
-- `XRAY_CONFIG.current.json`
+## Quick summary
 
-## Current scope
+| Component | Domain | Port | Server | Transport |
+|---|---|---|---|---|
+| Panel | mandalore.severdesign.ru | 9443 | Sabram Neo (5.42.110.191) | HTTPS |
+| Coruscant | coruscant.severdesign.ru | 8444 | Aeza (5.182.86.27) | VLESS+GRPC+REALITY |
+| Tatooine | tatooine.severdesign.ru | 2096 | USA (184.174.97.95) | VLESS+XHTTP+TLS |
+| Jedha mask | jedha.severdesign.ru | 80 | Aeza → hello.severdesign.ru | HTTP redirect |
+| Bespin mask | bespin.severdesign.ru | 80 | USA → hello.severdesign.ru | HTTP redirect |
+| Subscription | mandalore.severdesign.ru:9443 | — | Sabram Neo | — |
 
-- `Mos Eisley` uses `xhttp + tls` on `endor.severdesign.ru:773`.
-- `Alderaan` stays on `grpc + reality` on `heavymetal.severdesign.ru:447`.
-- `endor` HTTP surface redirects to `welcome.severdesign.ru`.
-- `rage.severdesign.ru` stays the panel/subscription endpoint.
+## Constraints
 
-## Usage
-
-Use this folder as the single source of truth for future edits.
-Do not mix it with older handoff folders unless a rollback requires history.
+- Do NOT touch CloudPanel (Aeza)
+- Do NOT touch sabram.ru (Aeza)
+- Do NOT touch port 443 on Aeza (CloudPanel)
+- No secrets/keys in git
+- Archive/ excluded from git

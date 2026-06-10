@@ -2,36 +2,43 @@
 
 ## Topology
 
-- `Sabram Neo` (`5.42.110.191`) is the control plane.
-- `Aeza` (`5.182.86.27`) is the live data plane.
-- `heavymetal.severdesign.ru` is the edge domain and still maps to `5.182.86.27`.
-- `endor.severdesign.ru` is the Mos Eisley TLS mask domain and also maps to `5.182.86.27`.
+- Sabram Neo (5.42.110.191) — control plane. Marzban panel LIVE on mandalore.severdesign.ru:9443.
+- Aeza (5.182.86.27) — data plane 1. Marzban-node running, Coruscant inbound on port 8444.
+- USA (184.174.97.95) — data plane 2. Ubuntu 24.04, Docker NOT installed yet. Tatooine inbound pending.
 
 ## Live services
 
-- `rage.severdesign.ru` not returns the panel and subscription endpoint.
-- `welcome.severdesign.ru` stays not live and is used as the HTTP mask target.
-- `CloudPanel` and `sabram.ru` stay on `Aeza` and must not be disturbed.
+- Panel: https://mandalore.severdesign.ru:9443/ → 200 OK
+- Coruscant inbound: port 8444, REALITY config active
+- Jedha mask: Nginx redirect on Aeza, port 80
+- CloudPanel (443) and sabram.ru on Aeza — UNTOUCHED, per constraint
 
-## Production profiles (like It seemed to be)
+## Inbounds (Marzban)
 
-- `Mos Eisley`
-  - transport: `xhttp + tls`
-  - endpoint: `endor.severdesign.ru:773`
-  - path: `/hm`
-  - `serverName = endor.severdesign.ru`
-  - TLS cert is valid and handshakes from outside the host
-- `Alderaan`
-  - transport: `grpc + reality`
-  - endpoint: `heavymetal.severdesign.ru:447`
-  - serviceName: `hm-grpc`
+1. **Coruscant** — VLESS GRPC REALITY, port 8444, serviceName cor-grpc, node Aeza
+2. Old inbounds still present (773, 447, 448) — pending cleanup after Tatooine setup
 
-## Subscription state
+## Users
 
-- whole project is more dead than alive. last changes were critical, and last agent was so foolish that he hasn't backup files/diffs, so the project fucked up. I even can't login to Matzban panel. Let's reanimate it in new GREAT state.
+- 1 user: **Anakin** (status: active, UUID generated)
+- 1 subscription: **Rebel Alliance** at `/sub/QW5ha2luLDE3ODEwNzExMzgugkEPmvkEm`
 
-## Operational constraints
+## Routing
 
-- do not reuse old ports, proposed chagges and my wishes see at TODO.md
-- do not break `CloudPanel`
-- do not break `sabram.ru`
+- RU/SU/BY domains → DIRECT
+- Apple push, geoip:private → DIRECT
+- BitTorrent → DIRECT
+- AI services → default proxy
+
+## Git
+
+- Branch: `rise-of-republic`
+- Initial commit: current state
+- Remote: git@github.com:Sabramvi/Rebel-Alliance.git
+
+## Blockers
+
+- USA server: skywalker user needs sudo for Docker install
+- Tatooine inbound: not configured (USA pending)
+- Bespin mask: not configured (USA pending)
+- Old inbounds cleanup: pending Tatooine setup

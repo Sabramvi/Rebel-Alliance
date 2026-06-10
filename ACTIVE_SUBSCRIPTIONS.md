@@ -1,22 +1,17 @@
-# Important notice by USER
+# Active Subscriptions
 
-This file is NOT A SoT!! Don't trust it! It was written by agent that failed his work and killed system! Just analyse, try understand for context.
-Everything written below is a report on the agent’s work that led to a critical system error. Copy file after work to archive, and update this file
+## Current
 
-## Active Subscriptions
+- **Rebel Alliance** — 1 user `Anakin`
+- Subscription: `https://mandalore.severdesign.ru:9443/sub/QW5ha2luLDE3ODEwNzExMzgugkEPmvkEm`
 
-- `Sabram`
-  - `https://rage.severdesign.ru/sub/U2FicmFtLDE3ODA2MjIyOTEO7hGwPjqQQ`
-- `AnnasSweets`
-  - `https://rage.severdesign.ru/sub/QW5uYXNTd2VldHMsMTc3NjM3NjY5OQvvkxBwIirV`
-- `MadameSabram`
-  - `https://rage.severdesign.ru/sub/TWFkYW1lU2FicmFtLDE3NzYzNzY2OTkp2JzZeXXBw`
-- `Siv34`
-  - `https://rage.severdesign.ru/sub/U2l2MzQsMTc3NjM3NjY5OQDO0ahPYSqn`
+## Inbounds in subscription
+
+1. **Coruscant** — VLESS GRPC REALITY on coruscant.severdesign.ru:8444
+2. Old inbounds still listed (773, 447, 448) — will be removed after Tatooine setup
 
 ## Notes
 
-- these URLs stay stable
-- after update, each subscription should expose:
-  - `Mos Eisley` -> `endor.severdesign.ru:773`
-  - `Alderaan` -> `heavymetal.severdesign.ru:447`
+- Subscription URL is stable
+- After Tatooine is configured, subscription will include only Coruscant + Tatooine
+- Old users (Sabram, AnnasSweets, MadameSabram, Siv34, etc.) preserved in DB backup

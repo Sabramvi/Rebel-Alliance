@@ -234,7 +234,7 @@ Max Concurrent: 5 (Waves 2, 3, 5)
 > **A task WITHOUT QA Scenarios is INCOMPLETE. No exceptions.**
 > **FORMAT**: Task labels MUST use bare numbers: `1.`, `2.`, `3.` — NOT `T1.`, `Task 1.`, `Phase 1:`.
 
-- [ ] 1. SSH discovery + backup on Sabram Neo (5.42.110.191)
+- [x] 1. SSH discovery + backup on Sabram Neo (5.42.110.191)
 
   **What to do**:
   - SSH to skywalker@5.42.110.191
@@ -306,7 +306,7 @@ Max Concurrent: 5 (Waves 2, 3, 5)
 
   **Commit**: NO (part of Wave 1 discovery)
 
-- [ ] 2. SSH discovery + backup on Aeza (5.182.86.27)
+- [x] 2. SSH discovery + backup on Aeza (5.182.86.27)
 
   **What to do**:
   - SSH to skywalker@5.182.86.27
@@ -375,7 +375,7 @@ Max Concurrent: 5 (Waves 2, 3, 5)
 
   **Commit**: NO
 
-- [ ] 3. SSH discovery on USA (184.174.97.95)
+- [x] 3. SSH discovery on USA (184.174.97.95)
 
   **What to do**:
   - SSH using key: `ssh -i /Users/sabram/.ssh/skywalker_deploy skywalker@184.174.97.95`
@@ -442,7 +442,7 @@ Max Concurrent: 5 (Waves 2, 3, 5)
 
   **Commit**: NO
 
-- [ ] 4. Git init + initial commit of current state
+- [x] 4. Git init + initial commit of current state
 
   **What to do**:
   - `git init` in project root
@@ -510,7 +510,7 @@ Max Concurrent: 5 (Waves 2, 3, 5)
   - Files: `.gitignore`, all current docs
   - Pre-commit: verify no secrets staged
 
-- [ ] 5. Fix Marzban panel on Sabram Neo (5.42.110.191)
+- [x] 5. Fix Marzban panel on Sabram Neo (5.42.110.191)
 
   **What to do**:
   - Based on Task 1 discovery, fix the broken panel
@@ -592,7 +592,7 @@ Max Concurrent: 5 (Waves 2, 3, 5)
 
   **Commit**: NO
 
-- [ ] 6. Install Docker + Marzban-node on USA (184.174.97.95)
+- [~] 6. Install Docker + Marzban-node on USA (184.174.97.95)
 
   **What to do**:
   - SSH to USA with skywalker_deploy key
@@ -675,7 +675,7 @@ Max Concurrent: 5 (Waves 2, 3, 5)
 
   **Commit**: NO
 
-- [ ] 7. Configure Aeza Marzban-node for Coruscant (GRPC REALITY)
+- [x] 7. Configure Aeza Marzban-node for Coruscant (GRPC REALITY)
 
   **What to do**:
   - Based on Task 2 discovery, reconfigure Aeza node
@@ -744,7 +744,7 @@ Max Concurrent: 5 (Waves 2, 3, 5)
 
   **Commit**: NO
 
-- [ ] 8. Nginx mask: jedha.severdesign.ru → hello.severdesign.ru on Aeza
+- [x] 8. Nginx mask: jedha.severdesign.ru → hello.severdesign.ru on Aeza
 
   **What to do**:
   - Add Nginx server block on Aeza for jedha mask:
@@ -812,7 +812,7 @@ Max Concurrent: 5 (Waves 2, 3, 5)
 
   **Commit**: NO
 
-- [ ] 9. Nginx mask: bespin.severdesign.ru → hello.severdesign.ru on USA
+- [~] 9. Nginx mask: bespin.severdesign.ru → hello.severdesign.ru on USA
 
   **What to do**:
   - Install Nginx on USA if not present: `sudo apt install -y nginx`
@@ -871,7 +871,7 @@ Max Concurrent: 5 (Waves 2, 3, 5)
 
   **Commit**: NO
 
-- [ ] 10. Let's Encrypt DNS cert for mandalore.severdesign.ru (Sabram Neo)
+- [x] 10. Let's Encrypt DNS cert for mandalore.severdesign.ru (Sabram Neo)
 
   **What to do**:
   - Install certbot with DNS plugin: `sudo apt install -y certbot python3-certbot-dns-cloudflare` (or appropriate DNS provider plugin)
@@ -936,7 +936,7 @@ Max Concurrent: 5 (Waves 2, 3, 5)
 
   **Commit**: NO
 
-- [ ] 11. Let's Encrypt DNS cert for coruscant.severdesign.ru (Aeza)
+- [x] 11. Let's Encrypt DNS cert for coruscant.severdesign.ru (Aeza)
 
   **What to do**:
   - Similar to Task 10 but on Aeza server
@@ -1057,7 +1057,7 @@ Max Concurrent: 5 (Waves 2, 3, 5)
 
   **Commit**: NO
 
-- [ ] 13. Let's Encrypt DNS cert for jedha.severdesign.ru (Aeza)
+- [x] 13. Let's Encrypt DNS cert for jedha.severdesign.ru (Aeza)
 
   **What to do**:
   - Obtain cert on Aeza: `sudo certbot certonly --dns-cloudflare ... -d jedha.severdesign.ru`
@@ -1161,7 +1161,7 @@ Max Concurrent: 5 (Waves 2, 3, 5)
 
   **Commit**: NO
 
-- [ ] 15. Configure Coruscant inbound on Marzban panel
+- [x] 15. Configure Coruscant inbound on Marzban panel
 
   **What to do**:
   - Access Marzban panel at `https://mandalore.severdesign.ru:9443/dashboard/`
@@ -1340,7 +1340,7 @@ Max Concurrent: 5 (Waves 2, 3, 5)
 
   **Commit**: NO
 
-- [ ] 18. Configure routing rules on Marzban panel
+- [x] 18. Configure routing rules on Marzban panel
 
   **What to do**:
   - Configure Marzban Hosts/Routing settings:
@@ -1408,7 +1408,7 @@ Max Concurrent: 5 (Waves 2, 3, 5)
 
   **Commit**: NO
 
-- [ ] 19. Create user "Anakin" + subscription "Rebel Alliance"
+- [x] 19. Create user "Anakin" + subscription "Rebel Alliance"
 
   **What to do**:
   - Access Marzban panel → Users → Add User
@@ -1747,7 +1747,7 @@ Max Concurrent: 5 (Waves 2, 3, 5)
 
   **Commit**: NO
 
-- [ ] 25. Update all project documentation
+- [x] 25. Update all project documentation
 
   **What to do**:
   - Update `README.md`: Remove warning notice, write as SoT. Document new topology, domains, ports.
@@ -1822,7 +1822,7 @@ Max Concurrent: 5 (Waves 2, 3, 5)
   **Commit**: YES (groups with Task 27)
   - Files: all updated .md files, SOURCE_OF_TRUTH.env, XRAY_CONFIG.current.json
 
-- [ ] 26. Archive old files + update .gitignore
+- [x] 26. Archive old files + update .gitignore
 
   **What to do**:
   - Move old/warning-marked files to Archive/:
