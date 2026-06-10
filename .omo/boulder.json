@@ -1,0 +1,35 @@
+{
+  "schema_version": 2,
+  "active_work_id": "vpn-reanimation-2887933c",
+  "works": {
+    "vpn-reanimation-2887933c": {
+      "work_id": "vpn-reanimation-2887933c",
+      "active_plan": "/Users/sabram/_SabramDesign/_Projects/AI Next/Skywalker-VPN/.omo/plans/vpn-reanimation.md",
+      "plan_name": "vpn-reanimation",
+      "status": "active",
+      "started_at": "2026-06-10T05:31:13.320Z",
+      "updated_at": "2026-06-10T05:31:13.320Z",
+      "session_ids": [
+        "opencode:ses_1502f6184ffev5syBjlzwdsd3f"
+      ],
+      "session_origins": {
+        "opencode:ses_1502f6184ffev5syBjlzwdsd3f": "direct"
+      },
+      "agent": "atlas",
+      "task_sessions": {}
+    }
+  },
+  "active_plan": "/Users/sabram/_SabramDesign/_Projects/AI Next/Skywalker-VPN/.omo/plans/vpn-reanimation.md",
+  "started_at": "2026-06-10T05:31:13.320Z",
+  "status": "active",
+  "updated_at": "2026-06-10T05:31:13.320Z",
+  "session_ids": [
+    "opencode:ses_1502f6184ffev5syBjlzwdsd3f"
+  ],
+  "session_origins": {
+    "opencode:ses_1502f6184ffev5syBjlzwdsd3f": "direct"
+  },
+  "plan_name": "vpn-reanimation",
+  "task_sessions": {},
+  "agent": "atlas"
+}

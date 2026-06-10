@@ -1,0 +1,33 @@
+{
+  "note": "Live config snapshot summary. Sensitive keys are not embedded here.",
+  "panel": {
+    "panel_host": "5.42.110.191",
+    "subscription_endpoint": "rage.severdesign.ru"
+  },
+  "inbounds": [
+    {
+      "tag": "VLESS XHTTP TLS",
+      "port": 773,
+      "network": "xhttp",
+      "security": "tls",
+      "serverName": "endor.severdesign.ru",
+      "path": "/hm",
+      "certificateFile": "/var/lib/marzban-node/endor_cert.pem",
+      "keyFile": "/var/lib/marzban-node/endor_key.pem"
+    },
+    {
+      "tag": "VLESS GRPC REALITY",
+      "port": 447,
+      "network": "grpc",
+      "security": "reality",
+      "address": "heavymetal.severdesign.ru",
+      "serviceName": "hm-grpc"
+    }
+  ],
+  "notes": [
+    "Mos Eisley is xhttp+tls on endor:773.",
+    "Alderaan stays grpc+reality on heavymetal:447.",
+    "CloudPanel and sabram.ru stay untouched."
+  ]
+}
+

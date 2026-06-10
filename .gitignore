@@ -1,0 +1,10 @@
+.env
+*.key
+*.pem
+*.crt
+backups/
+Archive/
+.omo/evidence/
+.omo/drafts/
+.DS_Store
+SOURCE_OF_TRUTH.md
