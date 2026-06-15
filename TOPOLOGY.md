@@ -1,40 +1,65 @@
-# Topology
+# Skywalker-VPN Dual-Stream Topology
 
-## Servers
+This document provides a comprehensive and structured overview of the system architecture. The network is split into two entirely independent streams for maximum resilience, isolation, and stealth.
 
-| Name | IP | Role | Services |
-|---|---|---|---|
-| Sabram Neo | 5.42.110.191 | Control plane | Marzban panel, Nginx, FastPanel |
-| Aeza | 5.182.86.27 | Data plane 1 | Marzban-node (Coruscant), CloudPanel, sabram.ru |
-| USA | 184.174.97.95 | Data plane 2 | Marzban-node (Tatooine), Nginx — STAGING |
+## Stream 1: Aeza Standalone (High Stealth)
 
-## Domains
+A fully isolated standalone system on the Aeza server, implementing a three-layer domain isolation strategy to hide VPN signatures from censors.
 
-| Domain | IP | Purpose |
-|---|---|---|
-| mandalore.severdesign.ru | 5.42.110.191 | Marzban panel :9443 |
-| coruscant.severdesign.ru | 5.182.86.27 | Edge 1 — GRPC REALITY :8444 |
-| tatooine.severdesign.ru | 184.174.97.95 | Edge 2 — XHTTP TLS :2096 |
-| dagoba.severdesign.ru | 184.174.97.95 | Tatooine SNI |
-| jedha.severdesign.ru | 5.182.86.27 | Mask → hello.severdesign.ru |
-| bespin.severdesign.ru | 184.174.97.95 | Mask → hello.severdesign.ru |
-| hello.severdesign.ru | — | Mask target (legit site) |
+**Host:** Aeza (5.182.86.27)
 
-## Transports
+| Layer | Domain | Service | Internal Port | Description |
+|---|---|---|---|---|
+| **Management** | `coruscant.severdesign.ru` | Marzban Panel | 8000 | Administrative interface. This domain is never visible in VPN data traffic. |
+| **Disguise** | `new.severdesign.ru` | Next.js Portfolio | 8080 | Legitimate website. REALITY "steals" the SSL certificate from this domain. |
+| **VPN entry** | `jedha.severdesign.ru` | Xray VLESS | 443 (External) | The public endpoint clients connect to. |
 
-- **Coruscant**: VLESS + GRPC + REALITY, port 8444, serviceName `cor-grpc`, SNI coruscant.severdesign.ru
-- **Tatooine**: VLESS + XHTTP + TLS, port 2096, path `/api`, SNI dagoba.severdesign.ru
+### Technical Specifications (Aeza):
+- **Transport Stack:** VLESS + XHTTP + REALITY
+- **Network Protocol:** `xhttp` (Path: `/hoth`)
+- **REALITY Configuration:**
+  - **SNI:** `new.severdesign.ru`
+  - **Destination:** `127.0.0.1:8443` (Internal Nginx serving the masking site with SSL)
+  - **Public/Private Keys:** Freshly generated for Aeza standalone.
+- **Client Settings:**
+  - **Address:** `jedha.severdesign.ru`
+  - **Port:** `443`
+  - **Host header:** (Empty or matches SNI)
 
-## Routing (Xray core config)
+---
 
-- AI services (openai, anthropic, gemini, adobe) — default proxy (through VPN)
-- Russian sites (RU/SU/BY domains, geosite:category-ru) — DIRECT
-- Apple push — DIRECT
-- BitTorrent — DIRECT
-- geoip:private — DIRECT
+## Stream 2: Neo Cluster (Centrally Managed)
 
-## Check locations
+A distributed system managed from a central command server.
 
-- External checks: from MacBook Air (DNS, TLS, curl)
-- Node checks: SSH to Aeza / USA
-- Panel checks: SSH to Sabram Neo
+**Command & Control:** Sabram Neo (5.42.110.191)
+- **Primary Domain:** `mandalore.severdesign.ru`
+- **Panel Port:** `51823`
+
+| Data Node | Server IP | VPN Entry Domain | Disguise Domain (SNI) | Transport Type |
+|---|---|---|---|---|
+| **USA (Tatooine)** | 184.174.97.95 | `tatooine.severdesign.ru` | `severdesign.ru` | VLESS + XHTTP + REALITY |
+| **NL (Alderaan)** | 92.51.45.122 | `anakin.design-duo.ru` | `anakin.design-duo.ru` | VLESS + XHTTP + REALITY |
+
+---
+
+## Shared Routing Policies
+
+Both streams use a unified routing logic defined in `CURRENT_ROUTING.json` to ensure seamless access to blocked services while bypassing the VPN for regional traffic.
+
+### Proxy (Strict VPN Routing):
+- **AI Ecosystems:** OpenAI (ChatGPT), Anthropic (Claude), Google Gemini, Adobe (Firefly/Creative Cloud), Antigravity.google.
+- **Content Platforms:** Midjourney, Suno, Udio, Elevenlabs.
+
+### Direct (Regional & System Traffic):
+- **Regional Domains:** `*.ru`, `*.su`, `*.by`, `*.xn--p1ai`.
+- **System Services:** Apple Push, BitTorrent, Internal/Private IPs.
+
+---
+
+## User Instructions & Agreements
+
+1. **Isolation:** The Aeza panel and its subscription links are kept strictly separate from the VPN data domains to prevent administrative detection.
+2. **Stealth Port:** VPN entry on Aeza uses port `443` to blend with standard HTTPS traffic.
+3. **Manual Override:** Technical steps requiring manual execution are provided in the chat for transparency and confirmation.
+4. **Standalone Goal:** Aeza remains a fallback system that functions independently of the Sabram Neo control plane.

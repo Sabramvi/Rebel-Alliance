@@ -592,7 +592,7 @@ Max Concurrent: 5 (Waves 2, 3, 5)
 
   **Commit**: NO
 
-- [~] 6. Install Docker + Marzban-node on USA (184.174.97.95)
+- [x] 6. Install Docker + Marzban-node on USA (184.174.97.95)
 
   **What to do**:
   - SSH to USA with skywalker_deploy key
@@ -812,7 +812,7 @@ Max Concurrent: 5 (Waves 2, 3, 5)
 
   **Commit**: NO
 
-- [~] 9. Nginx mask: bespin.severdesign.ru → hello.severdesign.ru on USA
+- [x] 9. Nginx mask: bespin.severdesign.ru → hello.severdesign.ru on USA
 
   **What to do**:
   - Install Nginx on USA if not present: `sudo apt install -y nginx`
@@ -990,7 +990,7 @@ Max Concurrent: 5 (Waves 2, 3, 5)
 
   **Commit**: NO
 
-- [ ] 12. Let's Encrypt DNS certs for tatooine.severdesign.ru + dagoba.severdesign.ru (USA)
+- [x] 12. Let's Encrypt DNS certs for tatooine.severdesign.ru + dagoba.severdesign.ru (USA)
 
   **What to do**:
   - Install certbot + DNS plugin on USA
@@ -1115,7 +1115,7 @@ Max Concurrent: 5 (Waves 2, 3, 5)
 
   **Commit**: NO
 
-- [ ] 14. Let's Encrypt DNS cert for bespin.severdesign.ru (USA)
+- [x] 14. Let's Encrypt DNS cert for bespin.severdesign.ru (USA)
 
   **What to do**:
   - Similar to Task 13 but on USA
@@ -1226,7 +1226,7 @@ Max Concurrent: 5 (Waves 2, 3, 5)
 
   **Commit**: NO
 
-- [ ] 16. Configure Tatooine inbound on Marzban panel
+- [x] 16. Configure Tatooine inbound on Marzban panel
 
   **What to do**:
   - Access Marzban panel → Inbounds → Add new inbound
@@ -1289,7 +1289,7 @@ Max Concurrent: 5 (Waves 2, 3, 5)
 
   **Commit**: NO
 
-- [ ] 17. Remove old inbounds + old users from Marzban panel
+- [x] 17. Remove old inbounds + old users from Marzban panel
 
   **What to do**:
   - Access Marzban panel → Inbounds
@@ -1469,7 +1469,7 @@ Max Concurrent: 5 (Waves 2, 3, 5)
 
   **Commit**: NO
 
-- [ ] 20. QA: Panel + subscription endpoint
+- [x] 20. QA: Panel + subscription endpoint
 
   **What to do**:
   - Run comprehensive QA on the Marzban panel
@@ -1522,7 +1522,7 @@ Max Concurrent: 5 (Waves 2, 3, 5)
 
   **Commit**: NO
 
-- [ ] 21. QA: Coruscant inbound (GRPC REALITY)
+- [x] 21. QA: Coruscant inbound (GRPC REALITY)
 
   **What to do**:
   - TLS handshake check: `openssl s_client -connect coruscant.severdesign.ru:8443 -servername coruscant.severdesign.ru`
@@ -1579,7 +1579,7 @@ Max Concurrent: 5 (Waves 2, 3, 5)
 
   **Commit**: NO
 
-- [ ] 22. QA: Tatooine inbound (XHTTP TLS)
+- [x] 22. QA: Tatooine inbound (XHTTP TLS)
 
   **What to do**:
   - TLS handshake: `openssl s_client -connect tatooine.severdesign.ru:2096 -servername dagoba.severdesign.ru`
@@ -1635,7 +1635,7 @@ Max Concurrent: 5 (Waves 2, 3, 5)
 
   **Commit**: NO
 
-- [ ] 23. QA: Mask redirects (jedha + bespin)
+- [x] 23. QA: Mask redirects (jedha + bespin)
 
   **What to do**:
   - `curl -sI http://jedha.severdesign.ru` → 301/302 Location: hello.severdesign.ru
@@ -1687,7 +1687,7 @@ Max Concurrent: 5 (Waves 2, 3, 5)
 
   **Commit**: NO
 
-- [ ] 24. QA: AI-service routing via proxy
+- [x] 24. QA: AI-service routing via proxy
 
   **What to do**:
   - Test that AI service domains are routed through proxy:
@@ -1884,7 +1884,7 @@ Max Concurrent: 5 (Waves 2, 3, 5)
 
   **Commit**: YES (groups with Task 27)
 
-- [ ] 27. Git commit + push to "Rise of Republic"
+- [x] 27. Git commit + push to "Rise of Republic"
 
   **What to do**:
   - Stage all changes: `git add -A`
@@ -1938,7 +1938,7 @@ Max Concurrent: 5 (Waves 2, 3, 5)
   - Message: `feat: reanimate VPN — Coruscant (REALITY) + Tatooine (XHTTP TLS) inbounds, new domains, routing`
   - Files: All changed docs + configs from Tasks 25, 26
 
-- [ ] 28. Create Tolaria knowledge base: Skywalker-VPN-wiki
+- [x] 28. Create Tolaria knowledge base: Skywalker-VPN-wiki
 
   **What to do**:
   - Create folder in Tolaria vault: `Skywalker-VPN-wiki/`
@@ -2017,19 +2017,19 @@ Max Concurrent: 5 (Waves 2, 3, 5)
 
 > 4 review agents run in PARALLEL. ALL must APPROVE. Present consolidated results to user and get explicit "okay" before completing.
 
-- [ ] F1. **Plan Compliance Audit** — `oracle`
+- [x] F1. **Plan Compliance Audit** — `oracle`
   Read the plan end-to-end. For each "Must Have": verify implementation exists (read file, curl endpoint, run command). For each "Must NOT Have": search codebase for forbidden patterns — reject with file:line if found. Check evidence files exist in .omo/evidence/. Compare deliverables against plan.
   Output: `Must Have [N/N] | Must NOT Have [N/N] | Tasks [N/N] | VERDICT: APPROVE/REJECT`
 
-- [ ] F2. **Code Quality Review** — `unspecified-high`
+- [x] F2. **Code Quality Review** — `unspecified-high`
   Review all config files for: hardcoded secrets, syntax errors, unused configs, stale references to old domains/ports. Check nginx configs (`nginx -t`), docker-compose files, Marzban configs. Verify no old domain names (heavymetal, rage, endor, welcome) remain in active configs.
   Output: `Nginx [PASS/FAIL] | Docker [PASS/FAIL] | Configs [N clean/N issues] | VERDICT`
 
-- [ ] F3. **Real Manual QA** — `unspecified-high`
+- [x] F3. **Real Manual QA** — `unspecified-high`
   Start from clean state. Execute EVERY QA scenario from EVERY task — follow exact steps, capture evidence. Test cross-task integration (panel + both nodes connected, subscription generates correct configs, inbounds accept connections). Test edge cases: panel restart, node disconnect/reconnect, cert expiry check.
   Output: `Scenarios [N/N pass] | Integration [N/N] | Edge Cases [N tested] | VERDICT`
 
-- [ ] F4. **Scope Fidelity Check** — `deep`
+- [x] F4. **Scope Fidelity Check** — `deep`
   For each task: read "What to do", read actual state (git log/diff, server state). Verify 1:1 — everything in spec was built (no missing), nothing beyond spec was built (no creep). Check "Must NOT do" compliance. Detect cross-task contamination. Flag unaccounted changes.
   Output: `Tasks [N/N compliant] | Contamination [CLEAN/N issues] | Unaccounted [CLEAN/N files] | VERDICT`
 

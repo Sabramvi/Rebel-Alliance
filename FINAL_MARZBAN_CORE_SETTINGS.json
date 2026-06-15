@@ -1,0 +1,66 @@
+{
+    "log": {
+        "loglevel": "warning"
+    },
+    "routing": {
+        "domainStrategy": "IPIfNonMatch",
+        "rules": [
+            {
+                "type": "field",
+                "outboundTag": "BLOCK",
+                "protocol": [
+                    "bittorrent"
+                ]
+            },
+            {
+                "type": "field",
+                "outboundTag": "BLOCK",
+                "ip": [
+                    "geoip:private"
+                ]
+            }
+        ]
+    },
+    "inbounds": [
+        {
+            "tag": "Aurora",
+            "listen": "0.0.0.0",
+            "port": 443,
+            "protocol": "vless",
+            "settings": {
+                "clients": [],
+                "decryption": "none"
+            },
+            "streamSettings": {
+                "network": "xhttp",
+                "security": "reality",
+                "realitySettings": {
+                    "show": false,
+                    "dest": "127.0.0.1:8443",
+                    "xver": 0,
+                    "serverNames": [
+                        "new.severdesign.ru"
+                    ],
+                    "privateKey": "EHIjhaJzmgw_g2EQrRyOWlxekSNJKJWtN5EcBhgrWwY",
+                    "shortIds": [
+                        "6a8b2c3d4e5f6a7b"
+                    ]
+                },
+                "xhttpSettings": {
+                    "path": "/hoth",
+                    "mode": "auto"
+                }
+            }
+        }
+    ],
+    "outbounds": [
+        {
+            "protocol": "freedom",
+            "tag": "DIRECT"
+        },
+        {
+            "protocol": "blackhole",
+            "tag": "BLOCK"
+        }
+    ]
+}
