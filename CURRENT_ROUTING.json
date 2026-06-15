@@ -53,7 +53,7 @@
           "domain:notebooklm.google.com",
           "domain:antigravity.google"
         ],
-        "outboundTag": "proxy"
+        "outboundTag": "{{ outbounds[0].tag }}"
       },
       {
         "domain": [
@@ -361,7 +361,7 @@
         "inboundTag": [
           "dns-in"
         ],
-        "outboundTag": "proxy"
+        "outboundTag": "{{ outbounds[0].tag }}"
       },
       {
         "outboundTag": "dns-out",
@@ -369,7 +369,7 @@
       },
       {
         "network": "tcp,udp",
-        "outboundTag": "proxy",
+        "outboundTag": "{{ outbounds[0].tag }}",
         "type": "field"
       }
     ]
